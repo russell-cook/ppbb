@@ -14,19 +14,23 @@
 
 		google.load("visualization", "1", {packages:["corechart"]});
 
-		function drawPieChart() {
+		function drawFundingCatChart() {
 			var pieData = google.visualization.arrayToDataTable([
-			  ['Task', 'Percent'],
-			  ['Direct Initiative Funding',     95],
-			  ['New Metrics',      5]
+			  ['Category', 'Amount'],
+			  ['Personnel',     2599497],
+			  ['Operations',      328588],
+			  ['Equipment',      88540],
+			  ['Other',      8269]
 			]);
 
 			var options = {
-			  title: 'Cost of New Metrics',
+			  //title: 'Expense Categories as a Share of Total Initiative Cost',
 			  legend: {position: 'none'},
+			  chartArea: {width: '80%', height: '80%'},
+			  pieSliceText: 'label'
 			};
 
-			var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+			var chart = new google.visualization.PieChart(document.getElementById('fundingCatChart'));
 			chart.draw(pieData, options);
 		}
 
@@ -362,17 +366,17 @@
 
 		function drawAllCharts(){
 			drawCostOfInitiativeChart();
-			drawBenchmarkChartA();
-			drawBenchmarkChartB();
-			drawPMInitiativeChartA();
-			drawPMInitiativeChartB();
-			drawPMAgencyChartA();
-			drawPMAgencyChartB();
-			drawPMAgencyChartC();
-			drawPMAgencyChartD();
-			drawCaseloadChartA();
-			drawCaseloadChartB();
-			drawPieChart();
+			//drawBenchmarkChartA();
+			//drawBenchmarkChartB();
+			//drawPMInitiativeChartA();
+			//drawPMInitiativeChartB();
+			//drawPMAgencyChartA();
+			//drawPMAgencyChartB();
+			//drawPMAgencyChartC();
+			//drawPMAgencyChartD();
+			//drawCaseloadChartA();
+			//drawCaseloadChartB();
+			drawFundingCatChart();
 		}
 
     </script>
@@ -409,66 +413,305 @@
 		</div>
 	</div>
 
-		    	<div class="row">
-		    		<div class="large-12 columns">
-		    			<h4>Agencies Funded by Initiative</h4>
-						<h5>Lead Agency: <a herf="#">DHHS - Division of Public and Behavioral Health</a></h5>
-						<h5>Secondary Agencies: None</h5>
-				    </div>
-				</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<h4>Agencies Funded by Initiative</h4>
+		</div>
+	</div>
 
-				<div class="row">
-				    <div class="large-12 columns">
+	<div class="row">
+		<div class="large-5 columns">
+			<h5>Lead Agency:</h5>
+			<ul class="no-bullet">
+				<li>
+					<ul>
+						<li><h6><a href="#">DHHS - Division of Public and Behavioral Health</a></h6></li>
+					</ul>
+				</li>
+			</ul>
+			<h5>Secondary Agencies:</h5>
+			<ul class="no-bullet">
+				<li>
+					<ul>
+						<li><h6>None</h6></li>
+					</ul>
+				</li>
+			</ul>
+	    </div>
 
-						<table>
-						  <thead>
-						    <tr>
-						      <th>Decision Unit</th>
-						      <th>Agency</th>
-						      <th>Budget Account</th>
-						      <th>FY14</th>
-						      <th>FY15</th>
-						      <th>Biennium Total</th>
-						    </tr>
-						  </thead>
-						  <tbody>
-						    <tr>
-						      <td>E-225</td>
-						      <td>DHHS - DPBH</td>
-						      <td>3645</td>
-						      <td>$1,481,330</td>
-						      <td>$1,543,564</td>
-						      <td>$3,024,894</td>
-						    </tr>
-						    <tr style="background-color:#dddddd">
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						      <td></td>
-						      <td><b>Total:</b></td>
-						      <td><b>$3,024,894</b></td>
-						    </tr>
-						  </tbody>
-						</table>
-					</div>
-				</div>
+	    <div class="large-7 columns">
 
-				<div class="row">
-					<div class="large-12 columns">
-						<h4>Cost Analysis</h4>
-						<p>This initiative requires just over $3.0 million in Tobacco funding during the 2014-15 biennium. The use of General Funds was also considered as an alternative funding approach. </p>
-						<p>Twenty new staff would be needed to support this expansion. Lake’s Crossing has already begun the process to hire this staff. A Board Certified Forensic Psychologist started September 1, 2013. A nurse has also been hired. These individuals are in other vacant position control numbers until Lake’s Crossings positions become available October 1. All position classifications have recruitment lists and interviews are being scheduled. It is anticipated that the psychiatrist position will present challenges in terms of hiring but recruitment has begun.</p>
+			<table>
+			  <thead>
+			    <tr>
+			      <th>Decision Unit</th>
+			      <th>Agency</th>
+			      <th>Budget Account</th>
+			      <th>FY14</th>
+			      <th>FY15</th>
+			      <th>Biennium</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <td><a href="#" data-reveal-id="modalDecUnitA">E-225</a></td>
+			      <td>DHHS - DPBH</td>
+			      <td>3645</td>
+			      <td>$1,481,330</td>
+			      <td>$1,543,564</td>
+			      <td>$3,024,894</td>
+			    </tr>
+			    <tr style="background-color:#dddddd">
+			      <td></td>
+			      <td></td>
+			      <td><b>Total:</b></td>
+			      <td>$1,481,330</td>
+			      <td>$1,543,564</td>
+			      <td><b>$3,024,894</b></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+	</div>
 
-						<div class="panel callout radius">
-							<p>Russ Note: "Staff Needed for Expansion" table goes here (i had some technical issues with the table this afternoon - it will be sorted out by monday)</p>
-						</div>
+	<div class="row">
+		<div class="large-12 columns">
+			<hr>
+			<h4>Expense Categories</h4>
+		</div>
+	</div>
 
-						<h5>Other Alternatives Considered</h5>
-						<p>DHHS and the Division of Public and Behavior Health have undertaken several operational changes to address the problems leading to the need for expanding the number of available forensic beds at Lake’s Crossing. The number of clients evaluated in an outpatient setting has increased. In addition Lake’s Crossing endeavors to provide restoration to competency in outpatient setting, whenever that is appropriate. Lake’s Crossing has also implemented a policy of recommending misdemeanants be diverted to the civil hospital if they have charges that can be dismissed and the clients are appropriately treated in that setting.</p>
-						<p>Jail Based competency was an alternative to the bed expansion that was considered at length. Our legal counsel indicated that any jail based competency program would need to be the substantial equivalency of the current forensic psychiatric hospital in order to be considered adequate. A bill was introduced during the 77th Legislative Session to facilitate the use of jail based competency programs and resolve some of the legal barriers. It did not pass. There is also concern about whether the jail would be able to provide an appropriate space that would accommodate the amount of the programming necessary to meet the “substantial equivalency” standard. At the present time the Clark County Jail is very crowded. The Washoe Detention Center does not have enough appropriate clients to make this cost effective. Twelve clients per year from this facility were deemed appropriate for such a program. Because of the low number of appropriate clients (averaging one client per month), it would not be cost effective to hire staff and implement a program. </p>
-						<p>When evaluating the efficacy of implementing a jail based competency program in Nevada, information from other states was reviewed. The evaluation included data from the initial project in San Bernardino, California, and programs in Arizona and Texas. Some of these programs required statutory changes as mentioned above. We also discussed a potential jail-based competency restoration program with the Competency Court Judge in Las Vegas and the Clark County Public Defenders’ Office. While the Division testified in support of legislation to allow such a program, the court and Public Defender’s Office in Clark County were not supportive at that time.</p>
-					</div>
-				</div>
+	<div class="row">
+	    <div class="large-7 columns">
+
+			<table>
+			  <thead>
+			    <tr>
+			      <th>Category</th>
+			      <th>FY14</th>
+			      <th>FY15</th>
+			      <th>Biennium</th>
+			      <th>Share of Total Initiative Cost</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr style="background-color: #3366cc">
+			      <td style="color: #fff">Personnel</td>
+			      <td style="color: #fff" align="right">$1,096,067</td>
+			      <td style="color: #fff" align="right">$1,503,430</td>
+			      <td style="color: #fff" align="right">$2,599,497</td>
+			      <td style="color: #fff" align="right">85.9%</td>
+			    </tr>
+			    <tr style="background-color: #dc3912">
+			      <td style="color: #fff">Operations</td>
+			      <td style="color: #fff" align="right">$326,126</td>
+			      <td style="color: #fff" align="right">$2,462</td>
+			      <td style="color: #fff" align="right">$328,588</td>
+			      <td style="color: #fff" align="right">10.9%</td>
+			    </tr>
+			    <tr style="background-color: #ff9900">
+			      <td align="right">Equipment</td>
+			      <td align="right">$54,520</td>
+			      <td align="right">$34,020</td>
+			      <td align="right">$88,540</td>
+			      <td align="right">2.9%</td>
+			    </tr>
+			    <tr style="background-color: #109618">
+			      <td style="color: #fff">Other</td>
+			      <td style="color: #fff" align="right">$4,617</td>
+			      <td style="color: #fff" align="right">$3,652</td>
+			      <td style="color: #fff" align="right">$8,269</td>
+			      <td style="color: #fff" align="right">0.3%</td>
+			    </tr>
+			    <tr style="background-color:#dddddd">
+			      <td><strong>Total:</strong></td>
+			      <td align="right"><strong>$1,481,330</strong></td>
+			      <td align="right"><strong>$1,543,564</strong></td>
+			      <td align="right"><strong>$3,024,894</strong></td>
+			      <td align="right"><strong>100%</strong></td>
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+
+		<div class="large-5 columns">
+			<div class="panel">
+				<center><h5>Expense Categories as a Share of Total Initiative Cost</h5></center>
+			<div id="fundingCatChart" style="width: 100%; height: 20em">
+			</div>
+	    </div>
+
+	</div>
+
+	<div class="row">
+		<div class="large-12 columns">
+
+			<hr>
+
+			<h4>Cost Analysis</h4>
+
+			<div class="panel" style="width: 100%; max-width: 30em; float: right; margin-left: 1em">
+				<div id="costOfInitiativeChart" style="width: 100%; height: 20em"></div>
+				<br>
+				<h6>This is a new program requiring just over $3.0 million in new funding during the 2014-15 biennium.</h6>
+			</div>
+
+			<p>This initiative requires just over $3.0 million in Tobacco funding during the 2014-15 biennium. The use of General Funds was also considered as an alternative funding approach. </p>
+			<p>Twenty new staff would be needed to support this expansion (<a href="#table_a">Table A</a>). Lake’s Crossing has already begun the process to hire this staff. A Board Certified Forensic Psychologist started September 1, 2013. A nurse has also been hired. These individuals are in other vacant position control numbers until Lake’s Crossings positions become available October 1. All position classifications have recruitment lists and interviews are being scheduled. It is anticipated that the psychiatrist position will present challenges in terms of hiring, but recruitment has begun.</p>
+		</div>
+
+
+		<div class="large-12 columns">
+
+			<hr>
+
+			<a id="table_a">
+
+			<div class="panel">
+			<center><h5>Table A: Staff Needed for Expansion</h5></center>
+				<table>
+					<thead>
+					  <tr>
+					    <th>Title</td>
+					    <th>Class Code</td>
+					    <th>Grade</td>
+					    <th>Step</td>
+					    <th># Positions</td>
+					    <th>Hourly Rate</td>
+					    <th>Annual Salary</td>
+					    <th>Paid Benefits</td>
+					    <th>Total Annual Compensation</td>
+					  </tr>
+					</thead>
+				  <tr>
+				    <td colspan="9"><strong>PSYCHOLOGY</strong></td>
+				  </tr>
+				  <tr>
+				    <td><dd>Licnesed Psychologist I</td>
+				    <td align="right">10.17</td>
+				    <td align="right">44</td>
+				    <td align="right">5</td>
+				    <td align="right">1</td>
+				    <td align="right">$38.86</td>
+				    <td align="right">$81,139.68</td>
+				    <td align="right">$31,798.64</td>
+				    <td align="right">$112,938.32</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>PSYCHIATRY</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Senior Psychiatrist    (Full-Time)</td>
+				    <td>Unclassified</td>
+				    <td></td>
+				    <td></td>
+				    <td align="right">1</td>
+				    <td align="right">$77.72</td>
+				    <td align="right">$162,279.36</td>
+				    <td align="right">$63,597.28</td>
+				    <td align="right">$225,876.64</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>MEDICAL RECORDS</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Administrative Asst. II</td>
+				    <td align="right">2.212</td>
+				    <td align="right">25</td>
+				    <td align="right">1</td>
+				    <td align="right">1</td>
+				    <td align="right">$14.46</td>
+				    <td align="right">$30,192.48</td>
+				    <td align="right">$11,832.43</td>
+				    <td align="right">$4,224.91</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>THERAPY</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Activities Therapy Techinician II</td>
+				    <td align="right">10.673</td>
+				    <td align="right">27</td>
+				    <td align="right">1</td>
+				    <td align="right">2</td>
+				    <td align="right">$31.30</td>
+				    <td align="right">$65,354.40</td>
+				    <td align="right">$25,612.39</td>
+				    <td align="right">$90,966.79</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>SOCIAL SERVICES</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Clinical Social Caseworker II</td>
+				    <td align="right">10.144</td>
+				    <td align="right">37</td>
+				    <td align="right">1</td>
+				    <td align="right">1</td>
+				    <td align="right">$23.80</td>
+				    <td align="right">$49,694.40</td>
+				    <td align="right">$19,475.24</td>
+				    <td align="right">$6,916,964.00</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>NURSING</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Psychiatric Nurse II</td>
+				    <td align="right">10.307</td>
+				    <td align="right">39</td>
+				    <td align="right">7</td>
+				    <td align="right">4</td>
+				    <td align="right">$135.64</td>
+				    <td align="right">$283,216.32</td>
+				    <td align="right">$110,992.48</td>
+				    <td align="right">$394,208.80</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>MAINTENANCE</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Custodial Worker I</td>
+				    <td align="right">9.634</td>
+				    <td align="right">21</td>
+				    <td align="right">1</td>
+				    <td align="right">1</td>
+				    <td align="right">$12.41</td>
+				    <td align="right">$25,912.08</td>
+				    <td align="right">$10,154.94</td>
+				    <td align="right">$36,067.02</td>
+				  </tr>
+				  <tr>
+				    <td colspan="9"><strong>SECURITY</strong></td>
+				  </tr>
+				  <tr>
+				    <td>Forensic Specialist III</td>
+				    <td align="right">13.322</td>
+				    <td align="right">32</td>
+				    <td align="right">1</td>
+				    <td align="right">9</td>
+				    <td align="right">$172.89</td>
+				    <td align="right">$360,994.32</td>
+				    <td align="right">$141,473.67</td>
+				    <td align="right">$502,467.99</td>
+				  </tr>
+				  <tr style="background-color:#dddddd">
+				    <td><strong>TOTAL:</strong></td>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				    <td align="right"><strong>20</strong></td>
+				    <td></td>
+				    <td></td>
+				    <td></td>
+				    <td align="right"><strong>$1,473,720.11</strong></td>
+				  </tr>
+				</table>
+			</div>
+
+
+		</div>
+	</div>
 
 
 
@@ -495,6 +738,170 @@
 		});
 
 	</script>
+
+  	<div id="modalDecUnitA" class="reveal-modal medium">
+
+	  	<h4>Initiative: Lake's Crossing</h4>
+	  	<h5><strong>Dec Unit:</strong> E-225 (Details)</h5>
+		<table>
+		  <thead>
+		  	<tr>
+			    <th>Cat</td>
+			    <th>GL</td>
+			    <th>Description</td>
+			    <th>Year 1</td>
+			    <th>Year 2</td>
+			    <th>Schedule</td>
+		    </tr>
+		  </thead>
+		  <tr>
+		    <td>01</td>
+		    <td>5100</td>
+		    <td>SALARIES</td>
+		    <td align="right">$732,083.00</td>
+		    <td align="right">$1,006,812.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5200</td>
+		    <td>WORKERS COMPENSATION</td>
+		    <td align="right">$16,622.00</td>
+		    <td align="right">$20,667.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5300</td>
+		    <td>RETIREMENT</td>
+		    <td align="right">$188,511.00</td>
+		    <td align="right">$259,254.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5400</td>
+		    <td>PERSONNEL ASSESSMENT</td>
+		    <td align="right">$3,897.00</td>
+		    <td align="right">$5,222.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5500</td>
+		    <td>GROUP INSURANCE</td>
+		    <td align="right">$123,900.00</td>
+		    <td align="right">$166,880.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5700</td>
+		    <td>PAYROLL ASSESSMENT</td>
+		    <td align="right">$1,174.00</td>
+		    <td align="right">$1,608.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5750</td>
+		    <td>RETIRED EMPLOYEES GROUP INSURANCE</td>
+		    <td align="right">$17,792.00</td>
+		    <td align="right">$27,183.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5800</td>
+		    <td>UNEMPLOYMENT COMPENSATION</td>
+		    <td align="right">$1,472.00</td>
+		    <td align="right">$1,203.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5840</td>
+		    <td>MEDICARE</td>
+		    <td align="right">$10,616.00</td>
+		    <td align="right">$14,601.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7050</td>
+		    <td>EMPLOYEE BOND INSURANCE</td>
+		    <td align="right">$54.00</td>
+		    <td align="right">$54.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7054</td>
+		    <td>AG TORT CLAIM ASSESSMENT</td>
+		    <td align="right">$2,408.00</td>
+		    <td align="right">$2,408.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7060</td>
+		    <td>CONTRACTS</td>
+		    <td align="right">$323,664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>VENDOR SERVICES</td>
+		  </tr>
+		  <tr>
+		    <td>05</td>
+		    <td>8270</td>
+		    <td>SPECIAL EQUIPMENT &gt;$5,000</td>
+		    <td align="right">$51,456.00</td>
+		    <td align="right">$34,020.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7554</td>
+		    <td>EITS INFRASTRUCTURE ASSESSMENT</td>
+		    <td align="right">$2,586.00</td>
+		    <td align="right">$2,086.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7556</td>
+		    <td>EITS SECURITY ASSESSMENT</td>
+		    <td align="right">$2,031.00</td>
+		    <td align="right">$1,566.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7771</td>
+		    <td>COMPUTER SOFTWARE &lt;$5,000 - A</td>
+		    <td align="right">$664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>8371</td>
+		    <td>COMPUTER HARDWARE &lt;$5,000 - A</td>
+		    <td align="right">$2,400.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		    <tr style="background-color:#dddddd">
+		      <td></td>
+		      <td></td>
+		      <td><strong>Total:</strong></td>
+		      <td><strong>$1,481,330</strong></td>
+		      <td><strong>$1,543,564</strong></td>
+		      <td></td>
+		    </tr>
+		</table>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+
 
   	<div id="modalSampleModal" class="reveal-modal small">
 	  <h3>Expanded Description</h3>

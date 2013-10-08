@@ -99,36 +99,59 @@
 			// Create and populate the data table.
 			var data = new google.visualization.DataTable();
 			data.addColumn('date', 'Date');
-			data.addColumn('number', 'Number Waiting');
+			data.addColumn('number', 'Number Waiting (Actual)');
+			data.addColumn('number', 'Number Waiting (Projected)');
 			data.addRows([
-				[new Date(2012,4,10),5],
-				[new Date(2012,4,23),6],
-				[new Date(2012,5,17),9],
-				[new Date(2012,6,11),7],
-				[new Date(2012,6,29),5],
-				[new Date(2012,7,30),8],
-				[new Date(2012,8,13),8],
-				[new Date(2012,8,24),7],
-				[new Date(2012,9,7),5],
-				[new Date(2012,9,26),8],
-				[new Date(2012,10,18),8],
-				[new Date(2012,11,1),6],
-				[new Date(2012,12,20),12],
-				[new Date(2013,1,9),13],
-				[new Date(2013,1,10),14],
-				[new Date(2013,1,17),15],
-				[new Date(2013,1,31),16],
-				[new Date(2013,2,25),18],
-				[new Date(2013,3,8),18],
-				[new Date(2013,3,19),23],
-				[new Date(2013,3,25),21],
-				[new Date(2013,4,19),26],
-				[new Date(2013,4,29),34],
-				[new Date(2013,5,7),31],
-				[new Date(2013,5,20),32],
-				[new Date(2013,6,10),36],
-				[new Date(2013,6,20),32],
-				[new Date(2013,7,10),36]
+				[new Date(2012,4,10),	5,		null],
+				[new Date(2012,4,23),	6,		null],
+				[new Date(2012,5,17),	9,		null],
+				[new Date(2012,6,11),	7,		null],
+				[new Date(2012,6,29),	5,		null],
+				[new Date(2012,7,30),	8,		null],
+				[new Date(2012,8,13),	8,		null],
+				[new Date(2012,8,24),	7,		null],
+				[new Date(2012,9,7),	5,		null],
+				[new Date(2012,9,26),	8,		null],
+				[new Date(2012,10,18),	8,		null],
+				[new Date(2012,11,1),	6,		null],
+				[new Date(2012,12,20),	12,		null],
+				[new Date(2013,1,9),	13,		null],
+				[new Date(2013,1,10),	14,		null],
+				[new Date(2013,1,17),	15,		null],
+				[new Date(2013,1,31),	16,		null],
+				[new Date(2013,2,25),	18,		null],
+				[new Date(2013,3,8),	18,		null],
+				[new Date(2013,3,19),	23,		null],
+				[new Date(2013,3,25),	21,		null],
+				[new Date(2013,4,19),	26,		null],
+				[new Date(2013,4,29),	34,		null],
+				[new Date(2013,5,7),	31,		null],
+				[new Date(2013,5,20),	32,		null],
+				[new Date(2013,6,10),	36,		null],
+				[new Date(2013,6,20),	32,		null],
+				[new Date(2013,7,10),	36,		null],
+				[new Date(2013,7,10),	null,	36],
+				[new Date(2013,8,1),	null,	35],
+				[new Date(2013,10,1),	null,	34],
+				[new Date(2013,12,1),	null,	33],
+				[new Date(2014,2,1),	null,	30],
+				[new Date(2014,4,1),	null,	28],
+				[new Date(2014,6,1),	null,	26],
+				[new Date(2014,8,1),	null,	24],
+				[new Date(2014,10,1),	null,	20],
+				[new Date(2014,12,1),	null,	19],
+				[new Date(2015,2,1),	null,	18],
+				[new Date(2015,4,1),	null,	17],
+				[new Date(2015,6,1),	null,	15],
+				[new Date(2015,8,1),	null,	14],
+				[new Date(2015,10,1),	null,	13],
+				[new Date(2015,12,1),	null,	12],
+				[new Date(2016,2,1),	null,	12],
+				[new Date(2016,4,1),	null,	11],
+				[new Date(2016,6,1),	null,	11],
+				[new Date(2016,8,1),	null,	10],
+				[new Date(2016,10,1),	null,	9],
+				[new Date(2016,12,1),	null,	9]
 			]);
 
 			// Create and draw the visualization.
@@ -140,7 +163,7 @@
 				//height: 400,
 				legend: {position: 'bottom'},
 				vAxis: {title: "Number Waiting", minValue: 0},
-				//hAxis: {title: "Date"},
+				hAxis: {minValue: new Date(2012,1,1), maxValue: new Date(2016,1,1)},
 				pointSize: 3
 				//seriesType: "bars"
 				//isStacked:false
@@ -150,11 +173,15 @@
 		function drawPMInitiativeChartB() {
 			// Create and populate the data table.
 			var data = google.visualization.arrayToDataTable([
-			  ['Fiscal Year', 'Average Wait Time (days)'],
-			  ['FY10',  13],
-			  ['FY11',  11],
-			  ['FY12',  14],
-			  ['FY13',  18]
+			  ['Fiscal Year', 'Average Wait Time (Actual)', 'Average Wait Time (Projected)'],
+			  ['FY10',  13,		null],
+			  ['FY11',  11,		null],
+			  ['FY12',  14,		null],
+			  ['FY13',  18,		null],
+			  ['FY14',  null,	17],
+			  ['FY15',  null,	15],
+			  ['FY16',  null,	13],
+			  ['FY17',  null,	12]
 			]);
 
 			// Create and draw the visualization.
@@ -175,17 +202,17 @@
 		function drawPMAgencyChartA() {
 			// Create and populate the data table.
 			var data = google.visualization.arrayToDataTable([
-			  ['Fiscal Year', 'Average Length of Stay (days)'],
-			  ['FY08',  127],
-			  ['FY09',  68],
-			  ['FY10',  76],
-			  ['FY11',  102],
-			  ['FY12',  81],
-			  ['FY13',  98],
-			  ['FY14',  null],
-			  ['FY15',  null],
-			  ['FY16',  null],
-			  ['FY17',  null]
+			  ['Fiscal Year', 'Average Length of Stay (Actual)', 'Average Length of Stay (Projected)'],
+			  ['FY08',  127,	null],
+			  ['FY09',  68,		null],
+			  ['FY10',  76,		null],
+			  ['FY11',  102,	null],
+			  ['FY12',  81,		null],
+			  ['FY13',  98,		null],
+			  ['FY14',  null,	100],
+			  ['FY15',  null,	95],
+			  ['FY16',  null,	90],
+			  ['FY17',  null,	88]
 			]);
 
 			// Create and draw the visualization.
@@ -205,17 +232,17 @@
 
 		function drawPMAgencyChartB() {
 		    var data = google.visualization.arrayToDataTable([
-			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial'],
-			  ['FY08',  null],
-			  ['FY09',  .84],
-			  ['FY10',  .87],
-			  ['FY11',  .81],
-			  ['FY12',  .74],
-			  ['FY13',  .71],
-			  ['FY14',  null],
-			  ['FY15',  null],
-			  ['FY16',  null],
-			  ['FY17',  null]
+			  ['Fiscal Year', 'Percent Discharged Competant to Stand Trial (Actual)', 'Percent Discharged Competant to Stand Trial (Projected)'],
+			  ['FY08',  null,	null],
+			  ['FY09',  .84,	null],
+			  ['FY10',  .87,	null],
+			  ['FY11',  .81,	null],
+			  ['FY12',  .74,	null],
+			  ['FY13',  .71,	.71],
+			  ['FY14',  null,	.75],
+			  ['FY15',  null,	.78],
+			  ['FY16',  null,	.82],
+			  ['FY17',  null,	.86]
 		    ]);
 
 		    var options = {
@@ -263,15 +290,15 @@
 		function drawPMAgencyChartD() {
 			// Create and populate the data table.
 			var data = google.visualization.arrayToDataTable([
-			  ['Fiscal Year', 'Average Cost Per Client Per Day'],
-			  ['FY10',  513],
-			  ['FY11',  424],
-			  ['FY12',  420],
-			  ['FY13',  378],
-			  ['FY14',  null],
-			  ['FY15',  null],
-			  ['FY16',  null],
-			  ['FY17',  null]
+			  ['Fiscal Year', 'Average Cost Per Client Per Day (Actual)', 'Average Cost Per Client Per Day (Projected)'],
+			  ['FY10',  513,	null],
+			  ['FY11',  424,	null],
+			  ['FY12',  420,	null],
+			  ['FY13',  378,	null],
+			  ['FY14',  null,	360],
+			  ['FY15',  null,	350],
+			  ['FY16',  null,	350],
+			  ['FY17',  null,	350]
 			]);
 
 			// Create and draw the visualization.
@@ -409,49 +436,55 @@
 		</div>
 	</div>
 
-								<div class="row">
-									<div class="large-12 columns">
-										<h3>Initiative-level Performance Measures</h3></center>
-										<div class="panel radius">
-											<p>Initiative-level Performance Measures are direct measurements of a program's impact on its intended population.</p>
-										</div>
-										<h5>Number Waiting for Forensic Beds</h5>
-										<div id="PMInitiativeChartA" style="width: 100%; height: 20em"></div>
-										<hr>
-										<h5>Length of Time on Waiting List</h5>
-										<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
-										<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>
+	<div class="row">
+		<div class="large-12 columns">
+			<h3>Initiative-level Performance Measures</h3></center>
+			<div class="panel radius">
+				<p>Initiative-level Performance Measures are direct measurements of a program's impact on its intended population.</p>
+			</div>
+			<center><h5>Number Waiting for Forensic Beds</h5></center>
+			<div id="PMInitiativeChartA" style="width: 100%; height: 20em"></div>
+			<hr>
+			<center><h5>Length of Time on Waiting List</h5></center>
+			<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+			<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>
 
-										<hr>
+			<hr>
+			<br><br>
 
-										<h3>Agency-level Performance Measures (Summary)</h3>
-										<div class="panel radius">
-											<p>Agency-level Performance Measures are direct measurements of a program's impact on its intended population.</p>
-										</div>
-										<h5>Average Length of Stay for Discharged Patients</h5>
-										<div id="PMAgencyChartA" style="width: 100%; height: 20em"></div>
-										<p><i>Note: Goal is length of stay less than 115 days.</i></p>
-										<hr>
-										<h5>Percent of Clients Judged Competent at Discharge</h5>
-										<div id="PMAgencyChartB" style="width: 100%; height: 20em"></div>
-										<p><i>Note: The declining number of competent defendants can probably be accounted for by two factors. The first is the persisting increase in the acuity of clients both medically and psychiatrically. These clients are observed to be more and more difficult to treat and restore due damaging drug use and the erratic treatment course for many where they are on and off psychiatric medications. A second reason is that the courts are less willing to allow involuntary medication for treatment to competency and these clients are deemed incompetent because that facility is unable to deliver treatment to them. In this case the only option is transfer into the civil system.</i></p>
-										<hr>
-										<h5>Rehospitalization of Conditional Release Clients</h5>
-										<div id="PMAgencyChartC" style="width: 100%; height: 20em"></div>
-										<p><i>Note: The conditional release statutes, Nevada Revised Statute 178.461 through 178.471, were added to the law in 2007. Since that time three individuals have been released from Lake’s Crossing Center on conditional release. None of the three has been readmitted from 2007 to the present.</i></p>
-										<hr>
-										<h5>Average Cost per Client per Day</h5>
-										<div id="PMAgencyChartD" style="width: 100%; height: 20em"></div>
+			<h3>Cost of Measures</h3>
+			<div class="panel callout radius">
+				<p>Note to Jeff: do we want to display any information about the cost of the metrics (either new measures or existing ones)? Perhaps a pie chart displaying the cost of the metrics as a share of the total initiative cost?</p>
+			</div>
 
-										<hr>
+			<hr>
+			<br><br>
 
-										<h3>Cost of Measures</h3>
-										<div class="panel callout radius">
-											<p>Note to Jeff: do we want to display any information about the cost of the metrics (either new measures or existing ones)? Perhaps a pie chart displaying the cost of the metrics as a share of the total initiative cost?</p>
-										</div>
+			<h3>Agency-level Performance Measures</h3>
+			<div class="panel radius">
+				<p>Agency-level Performance Measures are direct measurements of a program's impact on its intended population.</p>
+			</div>
+			<center><h5>Average Length of Stay for Discharged Patients</h5></center>
+			<div id="PMAgencyChartA" style="width: 100%; height: 20em"></div>
+			<p><i>Note: Goal is length of stay less than 115 days.</i></p>
 
-									</div>
-								</div>
+			<hr>
+			<center><h5>Percent of Clients Judged Competent at Discharge</h5></center>
+			<div id="PMAgencyChartB" style="width: 100%; height: 20em"></div>
+			<p><i>Note: The declining number of competent defendants can probably be accounted for by two factors. The first is the persisting increase in the acuity of clients both medically and psychiatrically. These clients are observed to be more and more difficult to treat and restore due damaging drug use and the erratic treatment course for many where they are on and off psychiatric medications. A second reason is that the courts are less willing to allow involuntary medication for treatment to competency and these clients are deemed incompetent because that facility is unable to deliver treatment to them. In this case the only option is transfer into the civil system.</i></p>
+
+			<hr>
+			<center><h5>Rehospitalization of Conditional Release Clients</h5></center>
+			<div id="PMAgencyChartC" style="width: 100%; height: 20em"></div>
+			<p><i>Note: The conditional release statutes, Nevada Revised Statute 178.461 through 178.471, were added to the law in 2007. Since that time three individuals have been released from Lake’s Crossing Center on conditional release. None of the three has been readmitted from 2007 to the present.</i></p>
+			<hr>
+			<center><h5>Average Cost per Client per Day</h5></center>
+			<div id="PMAgencyChartD" style="width: 100%; height: 20em"></div>
+
+			<hr>
+
+		</div>
+	</div>
 
 
 
