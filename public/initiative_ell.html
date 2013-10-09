@@ -17,9 +17,9 @@
 		function drawCostOfInitiativeChart() {
 			// Create and populate the data table.
 			var data = google.visualization.arrayToDataTable([
-			  ['Fiscal Year', 'Program Funding', 'English Master Council Funding'],
-			  ['FY14',  24950000, 50000],
-			  ['FY15',  24950000, 50000]
+			  ['Fiscal Year', 'New Funding'],
+			  ['FY14',  25000000],
+			  ['FY15',  25000000]
 			]);
 
 			// Create and draw the visualization.
@@ -30,10 +30,10 @@
 				//width: 600,
 				//height: 400,
 				legend: {position: 'bottom'},
-				vAxis: {title: "Funding", minValue: 0, maxValue: 1, format: '$#,###'},
+				vAxis: {title: "Funding", minValue: 0, format: '$#,###'},
 				hAxis: {title: "Fiscal Year"},
 				seriesType: "bars",
-				isStacked:true
+				//isStacked:true
 			});
 		}
 
@@ -425,8 +425,8 @@
 			  <li class="current"><a href="#">English Language Learners</a></li>
 			</ul>
 			<h2>Initiative: English Language Learners</h2>
+			<!--
 			<dl class="sub-nav">
-			  <!--<dt><strong>View:</strong></dt>-->
 			  <dd class="active"><a href="#">Overview</a></dd>
 			  <dd>|</dd>
 			  <dd><a href="#">Description/Justification</a></dd>
@@ -439,6 +439,7 @@
 			  <dd>|</dd>
 			  <dd><a href="#">Population/Caseload</a></dd>
 			</dl>
+			-->
 		</div>
 	</div>
 
@@ -446,18 +447,18 @@
 		<div class="large-7 columns">
 			<h4>Description (Summary)</h4>
 			<p>During the 77th Legislative Session, both the Governor and Legislature agreed that providing funding to better serve the English Language Learner population, particularly in the early years of education (pre-kindergarten through fourth grade), was critical to improving the educational success of Nevada’s children.  Our vision for Nevada’s English Language Learners is that students acquire academic English and content mastery when they are meaningfully engaged in undiluted grade level content learning and problem solving with their teachers and their peers. ELL and former ELL students are successful when they graduate with the ability to continue in post-secondary education or training opportunities.  We expect they will have the foundation and disposition to participate in and contribute to the society of their home and community.
-			<br><a href="#">Expanded Description >></a></p>
+			<!--<br><a href="#">Expanded Description >></a>--></p>
 
 			<h4>Justification (Summary)</h4>
 			<p>The ELL population has not previously received dedicated state education funds, yet over 68,000 of the state’s 445,000 students, or almost one out of every six students, is an ELL student.  Current and former ELL students comprise nearly one of every three Nevada students.  However, data suggests that students who successfully transition from being an ELL student to a former ELL student (former ELL students are those who have passed the English proficiency examination), within the expected timeframe (usually four to six years) perform better on assessments than the general student population.  Students within two years of exit perform 4.1% higher on the Math CRT and 1.8% higher on the Language Arts CRT.  
-			<br><a href="#">Expanded Justification >></a></p>
+			<!--<br><a href="#">Expanded Justification >></a>--></p>
 		</div>
 		<div class="large-5 columns">
 			<div class="panel">
 				<!--<center><h4>Cost of Initiative</h4></center>-->
 				<div id="costOfInitiativeChart" style="width: 100%; height: 20em"></div>
 				<br>
-				<p>This is a new program requiring $24,950,000 in new funding for each year of the 2014-15 biennium. In addition, the Initiative requires $50,000 per year for costs associated with the English Master Council (SB 504, Section 1.4).</p>
+				<p>This is a new program requiring $25 million in State General Fund Appropriations per year ($50 million in total) during the 2014-15 biennium. </p>
 			</div>
 		</div>
 	</div>
@@ -474,7 +475,7 @@
 						<h5>Lead Agency:</h5>
 	    			</div>
 	    			<div class="large-8 columns" style="text-align: right">
-						<h5><a href="#">Funding Details >></a></h5>
+						<!--<h5><a href="#">Funding Details >></a></h5>-->
 					</div>
 	    		</div>
 
@@ -496,14 +497,12 @@
 							</li>
 						</ul>
 						<h5>Cost Analysis (Summary)</h5>
-						<p>This initiative requires $25 million in State General Fund Appropriations per year ($50 million in total) during the 2014-15 biennium.</p>
+						<p>This initiative requires $25 million in State General Fund Appropriations per year ($50 million in total) during the 2014-15 biennium. Approximately $28.6 million is provided by NDE's budget, and approximately $21.3 million is provided by SB 504 (Section 16.2). In addition, $50,000 per year ($100,000 in total) is provided by SB 504 (Section 16.3) for costs associated with the English Mastery Council. </p>
 				    </div>
 
 				    <div class="large-7 columns">
 
-				    	<center><h5>Funding from Budget</h5></center>
-
-						<table>
+						<table width="100%">
 						  <thead>
 						    <tr>
 						      <th>Decision Unit</th>
@@ -519,31 +518,20 @@
 						      <td>E-276</td>
 						      <td>NDE</td>
 						      <td>2615</td>
-						      <td>$11,293,989</td>
-						      <td>$17,262,400</td>
-						      <td>$28,556,389</td>
-						    </tr>
-						    <tr style="background-color:#dddddd">
-						      <td></td>
-						      <td></td>
-						      <td><strong>Total:</strong></td>
-						      <td><strong>$11,293,989</strong></td>
-						      <td><strong>$17,262,400</strong></td>
-						      <td><strong>$28,556,389</strong></td>
+						      <td align="right">$11,293,989</td>
+						      <td align="right">$17,262,400</td>
+						      <td align="right">$28,556,389</td>
 						    </tr>
 						  </tbody>
-						</table>
 
-						<center><h5>Funding from Legislation</h5></center>
-						<table width="100%">
 						  <thead>
 						    <tr>
 						      <th>Bill</th>
-						      <th>Agency</th>
-						      <th>Budget Account</th>
-						      <th>FY14</th>
-						      <th>FY15</th>
-						      <th>Biennium</th>
+						      <th></th>
+						      <th></th>
+						      <th></th>
+						      <th></th>
+						      <th></th>
 						    </tr>
 						  </thead>
 						  <tbody>
@@ -551,25 +539,25 @@
 						      <td>SB 504</td>
 						      <td>NDE</td>
 						      <td>2615</td>
-						      <td style="color: red">$???</td>
-						      <td style="color: red">$???</td>
-						      <td style="color: red">$???</td>
+						      <td align="right">$13,656,011</td>
+						      <td align="right">$7,687,600</td>
+						      <td align="right">$21,343,611</td>
 						    </tr>
 						    <tr>
 						      <td>SB 504</td>
 						      <td>NDE</td>
 						      <td>2673</td>
-						      <td style="color: red">$???</td>
-						      <td style="color: red">$???</td>
-						      <td style="color: red">$???</td>
+						      <td align="right">$50,000</td>
+						      <td align="right">$50,000</td>
+						      <td align="right">$100,000</td>
 						    </tr>
 						    <tr style="background-color:#dddddd">
-						      <td></td>
-						      <td></td>
 						      <td><strong>Total:</strong></td>
-						      <td style="color: red"><strong>$???</strong></td>
-						      <td style="color: red"><strong>$???</strong></td>
-						      <td><strong>$21,443,611</strong></td>
+						      <td></td>
+						      <td></td>
+						      <td align="right"><strong>$25,000,000</strong></td>
+						      <td align="right"><strong>$25,000,000</strong></td>
+						      <td align="right"><strong>$50,000,000</strong></td>
 						    </tr>
 						  </tbody>
 						</table>
@@ -587,7 +575,7 @@
 			    				<h5>Statewide Objectives</h5>
 			    			</div>
 			    			<div class="large-8 columns" style="text-align: right">
-								<h5><a href="#">Statewide Objective/Benchmark Details >></a></h5>
+								<!--<h5><a href="#">Statewide Objective/Benchmark Details >></a></h5>-->
 							</div>
 			    		</div>
 
@@ -670,7 +658,7 @@
 			    			<div class="large-4 columns">
 			    			</div>
 			    			<div class="large-8 columns" style="text-align: right">
-								<h5><a href="#">Performance Measure Details >></a></h5>
+								<!--<h5><a href="#">Performance Measure Details >></a></h5>-->
 							</div>
 			    		</div>
 
@@ -740,7 +728,7 @@
 		    			<div class="large-4 columns">
 		    			</div>
 		    			<div class="large-8 columns" style="text-align: right">
-							<h5><a href="#">Performance Measure Details >></a></h5>
+							<!--<h5><a href="#">Performance Measure Details >></a></h5>-->
 						</div>
 		    		</div>
 
