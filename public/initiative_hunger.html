@@ -1,18 +1,25 @@
 <!DOCTYPE html>
-<!--[if IE 8]> 				 <html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 
 <head>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>English Language Learners</title>
-
+  <title>Hunger Reduction</title>
     <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+
     <script type="text/javascript">
-      google.load('visualization', '1', {packages: ['corechart']});
-    </script>
-    <script type="text/javascript">
-      function drawVisualization() {
+
+		google.load("visualization", "1", {packages:["corechart"]});
+
+		//draw all google charts after page load has completed
+		google.setOnLoadCallback(function() {
+			drawAllCharts();
+		});
+
+      function drawCostOfInitiativeChart() {
         // Create and populate the data table.
         var data = google.visualization.arrayToDataTable([
           ['Fiscal Year', 'Base Funding', 'Enhanced Funding'],
@@ -21,7 +28,7 @@
         ]);
       
         // Create and draw the visualization.
-        var ac = new google.visualization.ComboChart(document.getElementById('visualization'));
+        var ac = new google.visualization.ComboChart(document.getElementById('costOfInitiativeChart'));
         ac.draw(data, {
           title : 'Cost of Initiative',
 	  titleTextStyle: {fontSize: 24},
@@ -35,41 +42,79 @@
         });
       }
       
+		//called by clicking on a tab. when a tab is selected, set a 10ms timer and then re-draw all google charts
+		function initTimeout() {
+			clearTimeout(doit);
+			doit = setTimeout(function() {
+			    drawAllCharts();
+			}, 10);
+		}
 
-      google.setOnLoadCallback(drawVisualization);
+		function drawAllCharts(){
+			drawCostOfInitiativeChart();
+			//drawBenchmarkChartA();
+			//drawBenchmarkChartB();
+			//drawBenchmarkChartC();
+			//drawPMInitiativeChartA();
+			//drawPMInitiativeChartB();
+			//drawPMAgencyChartA();
+			//drawPMAgencyChartB();
+			//drawPMAgencyChartC();
+			//drawPMAgencyChartD();
+			//drawCaseloadChartA();
+			//drawCaseloadChartB();
+		}
+
     </script>
   
   <link rel="stylesheet" href="css/foundation.css">
-  
+  <link rel="stylesheet" href="css/ie8-grid-foundation-4.css">
 
   <script src="js/vendor/custom.modernizr.js"></script>
 
 </head>
 <body>
-
 	<div class="row">
 		<div class="large-12 columns">
 			<ul class="breadcrumbs">
-			  <li><a href="#">PPBB Home</a></li>
-			  <li><a href="key_initiatives.html">Key Budget Initiatives</a></li>
+			  <li>PPBB</li>
+			  <li><a href="index.html">Major Budget Initiatives</a></li>
 			  <li class="current"><a href="#">Hunger Reduction</a></li>
 			</ul>
 			<h2>Initiative: Hunger Reduction</h2>
+			<dl class="sub-nav">
+			  <!--<dt><strong>View:</strong></dt>-->
+			  <dd class="active"><a href="#">Overview</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Description/Justification</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Funding Details</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Statewide Objectives/Benchmarks Advanced</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Performance Measures</a></dd>
+			  <dd>|</dd>
+			  <dd><a href="#">Population/Caseload</a></dd>
+			</dl>
 		</div>
 	</div>
 
 	<div class="row">
-		<div class="large-6 columns">
-			<h3>Summary</h3>
-			<a href="#" data-reveal-id="modalExpandedDescription" class="tiny button">Details</a>
-			<p>DHHS is proposing an investment of an additional $2.3 million annually to reduce hunger in Nevada.  This program will provide additional subgrants to the network of community providers with the goal of over 90% of allocated funds used directly to feed needy Nevadans and to educate Nevadan’s regarding healthy eating habits.</p>
-			<!--<h5>Justification/Reason</h5>
-			<p>It is estimated that 200,000 children in Nevada’s schools (18%) do not speak English as their primary language.  It is further estimated that over 30% of these children will fail to read at grade level by the third grade without further assistance.  Numerous studies indicate that reading at grade level by the third grade is a key predictor of ultimate graduation success.</p>-->
+		<div class="large-7 columns">
+			<h4>Description (Summary)</h4>
+			<p>DHHS is proposing an investment of an additional $2.3 million annually to reduce hunger in Nevada.  This program will provide additional subgrants to the network of community providers with the goal of over 90% of allocated funds used directly to feed needy Nevadans and to educate Nevadan’s regarding healthy eating habits.
+			<br><a href="#">Expanded Description >></a></p>
+
+			<!--<h4>Justification (Summary)</h4>
+			<p>The ELL population has not previously received dedicated state education funds, yet over 68,000 of the state’s 445,000 students, or almost one out of every six students, is an ELL student.  Current and former ELL students comprise nearly one of every three Nevada students.  However, data suggests that students who successfully transition from being an ELL student to a former ELL student (former ELL students are those who have passed the English proficiency examination), within the expected timeframe (usually four to six years) perform better on assessments than the general student population.  Students within two years of exit perform 4.1% higher on the Math CRT and 1.8% higher on the Language Arts CRT.  
+			<br><a href="#">Expanded Justification >></a></p>-->
 		</div>
-		<div class="large-6 columns">
-			<div class="panel" style="height: 20em">
-				<!--<h4>Cost of Initiative</h4>-->
-				<div id="visualization" style="width: 100%; height: 100%"></div>
+		<div class="large-5 columns">
+			<div class="panel">
+				<!--<center><h4>Cost of Initiative</h4></center>-->
+				<div id="costOfInitiativeChart" style="width: 100%; height: 20em"></div>
+				<br>
+				<p>$2.3 million in Enhanced Funding (Tobacco funds) for each year of the upcoming biennium.</p>
 			</div>
 		</div>
 	</div>
@@ -78,50 +123,54 @@
 		<div class="section-container auto" data-section>
 
 		  <section>
-		    <p class="title" data-section-title><a href="#panel2">Funding</a></p>
+		    <p class="title" data-section-title><a href="#panel2" onclick="initTimeout()">Funding Summary</a></p>
 		    <div class="content" data-section-content style="min-height: 20em">
-		    	<div class="row">
 
+	    		<div class="row">
+	    			<div class="large-4 columns">
+						<h5>Lead Agency:</h5>
+	    			</div>
+	    			<div class="large-8 columns" style="text-align: right">
+						<h5><a href="#">Funding Details >></a></h5>
+					</div>
+	    		</div>
+
+		    	<div class="row">
 		    		<div class="large-5 columns">
-						<h5>Lead Agency: <a herf="#">DHHS - Welfare Division</a></h5>
-						<h5>Secondary Agencies: <a herf="#">Dept of Education</a>, <a herf="#">Dept of Agriculture</a></h5>
-						<br>
-						<h5>Cost Summary</h5>
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6><a href="#">DHHS - Welfare Division</a></h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Secondary Agencies:</h5>
+						<ul class="no-bullet">
+							<li>
+								<ul>
+									<li><h6><a href="#">Dept of Education</a></h6></li>
+								</ul>
+							</li>
+							<li>
+								<ul>
+									<li><h6><a href="#">Dept of Agriculture</a></h6></li>
+								</ul>
+							</li>
+						</ul>
+						<h5>Cost Analysis (Summary)</h5>
 						<p>$2.3 million in Tobacco funds each year of the upcoming biennium.  This is a 40% increase in direct funding provided by the State as current funding provided using a combination of state and federal funds is approx. $5.75 million annually.  There is currently no ability to further leverage Federal funds through this investment.  We can leverage private funding sources with approximately a 50% match to additional state funds – or $1.15 million per fiscal year.</p>
 				    </div>
 
 				    <div class="large-7 columns">
-
-				    	<div class="row">
-				    		<div class="large-2 columns">
-				    			Year 1 <input type="radio">
-				    		</div>
-				    		<div class="large-2 columns">
-				    			Year 2 <input type="radio">
-				    		</div>
-				    		<div class="large-2 columns">
-					    		Biennium Total <input type="radio" value="true">
-					    	</div>
-					    	<div class="large-6 columns">
-					    		Funding Type: <a href="#" data-dropdown="drop1" class="button small dropdown">All Types</a><br>
-
-								<ul id="drop1" class="f-dropdown">
-								  <li><a href="#">General Fund</a></li>
-								  <li><a href="#">Federal Fund</a></li>
-								  <li><a href="#">Highway Fund</a></li>
-								  <li><a href="#">Transfers</a></li>
-								  <li><a href="#">Other</a></li>
-								</ul>
-					    	</div>
-					    </div>
-
 						<table>
 						  <thead>
 						    <tr>
 						      <th>Decision Unit</th>
 						      <th>Agency</th>
 						      <th>Budget Account</th>
-						      <th>Biennium Cost</th>
+						      <th>FY14</th>
+						      <th>FY15</th>
+						      <th>Biennium</th>
 						    </tr>
 						  </thead>
 						  <tbody>
@@ -129,24 +178,32 @@
 						      <td>E-225</td>
 						      <td>DHHS - Welfare</td>
 						      <td>2000</td>
+						      <td>$300,000</td>
+						      <td>$300,000</td>
 						      <td>$600,000</td>
 						    </tr>
 						    <tr>
 						      <td>E-227</td>
 						      <td>Department of Education</td>
 						      <td>3100</td>
+						      <td>$1,000,000</td>
+						      <td>$1,000,000</td>
 						      <td>$2,000,000</td>
 						    </tr>
 						    <tr>
 						      <td>E-230</td>
 						      <td>Department of Agriculture</td>
 						      <td>4000</td>
+						      <td>$1,000,000</td>
+						      <td>$1,000,000</td>
 						      <td>$2,000,000</td>
 						    </tr>
 						    <tr style="background-color:#dddddd">
 						      <td></td>
 						      <td></td>
 						      <td><b>Total:</b></td>
+						      <td><b>$2,300,000</b></td>
+						      <td><b>$2,300,000</b></td>
 						      <td><b>$4,600,000</b></td>
 						    </tr>
 						  </tbody>
@@ -157,113 +214,34 @@
 		  </section>
 
 		  <section>
-		    <p class="title" data-section-title><a href="#panel3">Objectives/Benchmarks</a></p>
+		    <p class="title" data-section-title><a href="#panel3" onclick="initTimeout()">Objectives/Benchmarks Advanced</a></p>
 		    <div class="content" data-section-content style="min-height: 20em">
-		    	<div class="row">
-
-		    		<div class="large-5 columns">
-						<!--<h5>Objectives/Benchmarks Advanced:</h5>-->
-
-						<div class="row">
-							<div class="large-11 large-offset-1 columns">
-								<h6>Hunger Reduction:</h6>
-								<p><a href="#">Food Insecurity</a>, <a href="#">Very Low Food Security</a></p>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="large-11 large-offset-1 columns">
-								<h6>Wellness:</h6>
-								<p><a href="#">Obesity Rate</a>, <a href="#">Healthy Eating</a>
-							</div>
-						</div>
-						
-				    </div>
-
-				    <div class="large-7 columns">
-				    	<img src="img/grad_rate_chart.jpg">
-					</div>
-
+		    	<div class="panel callout radius">
+					<center><h6><i>No data available at this time</i></h6></center>
 				</div>
-		    </div>
+			</div>
 		  </section>
 
 		  <section>
-		    <p class="title" data-section-title><a href="#panel4">Performance Measures (Initiative)</a></p>
-		    <div class="content" data-section-content style="min-height: 20em">
-		    	<h5>Initiative-level Measurements (direct measurements of program success)</h5>
-				<div class="row">
-					<div class="large-11 large-offset-1 columns">
-						<p><a href="#">Percent of allocated funds used directly to support nutritional needs of Nevadans</a>
-							<a href="#" data-reveal-id="modalExpandedDescription" class="tiny button">Details</a>
-							<br>
-						<a href="#">Percent of allocated funds used directly to support diet education needs. </a>
-							<a href="#" data-reveal-id="modalExpandedDescription" class="tiny button">Details</a>
-							<br>
-					</p>
-					</div>
+		    <p class="title" data-section-title><a href="#panel4" onclick="initTimeout()">Performance Measures - Initiative</a></p>
+			    <div class="content" data-section-content style="min-height: 20em">
+		    	<div class="panel callout radius">
+					<center><h6><i>No data available at this time</i></h6></center>
 				</div>
-														
-		    </div>
+				</div>
 		  </section>
 
-		<section>
-			<p class="title" data-section-title><a href="#panel5">Performance Measures (Agency)</a></p>
-		    <div class="content" data-section-content style="min-height: 20em">
-		    	<h5>Agency Level Performance Measures (measurement of Dept. oversight)</h5>
-				<div class="row">
-					<div class="large-11 large-offset-1 columns">
-						<p><a href="#">Percentage of funds used for Direct Program implementation </a>
-							<a href="#" data-reveal-id="modalExpandedDescription" class="tiny button">Details</a>
-							<br>
-						<a href="#">School district compliance with reporting requirements</a>
-							<a href="#" data-reveal-id="modalExpandedDescription" class="tiny button">Details</a>
-							<br>
-						</p>
-					</div>
-				</div>
-										
-		    </div>
-		  </section>
 
 		  <section>
-		    <p class="title" data-section-title><a href="#panel6">Population/Caseload</a></p>
-		    <div class="content" data-section-content style="min-height: 20em">
-		    	<div class="row">
+		    <p class="title" data-section-title><a href="#panel5" onclick="initTimeout()">Performance Measures - Agency</a></p>
 
-		    		<div class="large-5 columns">
-						<!--<h5>Objectives/Benchmarks Advanced:</h5>-->
-
-						<div class="row">
-							<div class="large-11 large-offset-1 columns">
-								<h6>Population Served</h6>
-								<p>Food supply programs are targeted directly to populations with less than 135% of the Federal Poverty Rate.  Some resources are available to individuals with incomes up to 150% based upon specific criteria.  Education programs are targeted to populations receiving any support services through the state, local and non-profit resources.  Other education funds will be targeted directly to school age children K through 5th grade.</p>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="large-11 large-offset-1 columns">
-								<h6>Indirect Population Served</h6>
-								<p>Addressing food insecurity and healthy eating habits has indirect benefits to the community at large.  Individuals with adequate food are less likely to commit crimes, have better medical outcomes and require fewer other social support services. </p>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="large-11 large-offset-1 columns">
-								<h6>Who is Impacted?</h6>
-								<p>Analysis/description of fiscal impact, who would benefit from the initiative etc.</p>
-							</div>
-						</div>
-						
-				    </div>
-
-				    <div class="large-7 columns">
-				    	<img src="img/enrollment_chart.jpg">
-					</div>
-
+			    <div class="content" data-section-content style="min-height: 20em">
+		    	<div class="panel callout radius">
+					<center><h6><i>No data available at this time</i></h6></center>
 				</div>
-		    </div>
+		    	</div>
 		  </section>
+
 		</div>
 	</div>
 
@@ -275,50 +253,185 @@
   </script>
   
   <script src="js/foundation.min.js"></script>
-  <!--
-  
-  <script src="js/foundation/foundation.js"></script>
-  
-  <script src="js/foundation/foundation.alerts.js"></script>
-  
-  <script src="js/foundation/foundation.clearing.js"></script>
-  
-  <script src="js/foundation/foundation.cookie.js"></script>
-  
-  <script src="js/foundation/foundation.dropdown.js"></script>
-  
-  <script src="js/foundation/foundation.forms.js"></script>
-  
-  <script src="js/foundation/foundation.joyride.js"></script>
-  
-  <script src="js/foundation/foundation.magellan.js"></script>
-  
-  <script src="js/foundation/foundation.orbit.js"></script>
-  
-  <script src="js/foundation/foundation.reveal.js"></script>
-  
-  <script src="js/foundation/foundation.section.js"></script>
-  
-  <script src="js/foundation/foundation.tooltips.js"></script>
-  
-  <script src="js/foundation/foundation.topbar.js"></script>
-  
-  <script src="js/foundation/foundation.interchange.js"></script>
-  
-  <script src="js/foundation/foundation.placeholder.js"></script>
-  
-  <script src="js/foundation/foundation.abide.js"></script>
-  
-  -->
-  
-  <script>
-    $(document).foundation();
-  </script>
 
-  	<div id="modalExpandedDescription" class="reveal-modal small">
-	  <h3>Expanded Description</h3>
-	  <p>Details here</p>
-	  <p><a href="#">-> Continue to Destination</a></p>
+	<script>
+
+		//re-draw the google charts 100ms after a window re-size has been completed
+		$(document).foundation();
+
+		var doit;
+
+		$(window).resize(function() {
+			clearTimeout(doit);
+			doit = setTimeout(function() {
+			    drawAllCharts();
+			}, 100);
+		});
+
+	</script>
+
+  	<div id="modalDecUnitA" class="reveal-modal large">
+
+	  	<center><h4>Initiative: Lake's Crossing</h4>
+	  	<h5>Budget Account: 3645</h5>
+	  	<h5>Dec Unit: E-225</h5>
+		<table>
+		  <thead>
+		  	<tr>
+			    <th>Cat</td>
+			    <th>GL</td>
+			    <th>Description</td>
+			    <th>Year 1</td>
+			    <th>Year 2</td>
+			    <th>Schedule</td>
+		    </tr>
+		  </thead>
+		  <tr>
+		    <td>01</td>
+		    <td>5100</td>
+		    <td>SALARIES</td>
+		    <td align="right">$732,083.00</td>
+		    <td align="right">$1,006,812.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5200</td>
+		    <td>WORKERS COMPENSATION</td>
+		    <td align="right">$16,622.00</td>
+		    <td align="right">$20,667.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5300</td>
+		    <td>RETIREMENT</td>
+		    <td align="right">$188,511.00</td>
+		    <td align="right">$259,254.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5400</td>
+		    <td>PERSONNEL ASSESSMENT</td>
+		    <td align="right">$3,897.00</td>
+		    <td align="right">$5,222.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5500</td>
+		    <td>GROUP INSURANCE</td>
+		    <td align="right">$123,900.00</td>
+		    <td align="right">$166,880.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5700</td>
+		    <td>PAYROLL ASSESSMENT</td>
+		    <td align="right">$1,174.00</td>
+		    <td align="right">$1,608.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5750</td>
+		    <td>RETIRED EMPLOYEES GROUP INSURANCE</td>
+		    <td align="right">$17,792.00</td>
+		    <td align="right">$27,183.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5800</td>
+		    <td>UNEMPLOYMENT COMPENSATION</td>
+		    <td align="right">$1,472.00</td>
+		    <td align="right">$1,203.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>01</td>
+		    <td>5840</td>
+		    <td>MEDICARE</td>
+		    <td align="right">$10,616.00</td>
+		    <td align="right">$14,601.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7050</td>
+		    <td>EMPLOYEE BOND INSURANCE</td>
+		    <td align="right">$54.00</td>
+		    <td align="right">$54.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7054</td>
+		    <td>AG TORT CLAIM ASSESSMENT</td>
+		    <td align="right">$2,408.00</td>
+		    <td align="right">$2,408.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>04</td>
+		    <td>7060</td>
+		    <td>CONTRACTS</td>
+		    <td align="right">$323,664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>VENDOR SERVICES</td>
+		  </tr>
+		  <tr>
+		    <td>05</td>
+		    <td>8270</td>
+		    <td>SPECIAL EQUIPMENT &gt;$5,000</td>
+		    <td align="right">$51,456.00</td>
+		    <td align="right">$34,020.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7554</td>
+		    <td>EITS INFRASTRUCTURE ASSESSMENT</td>
+		    <td align="right">$2,586.00</td>
+		    <td align="right">$2,086.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7556</td>
+		    <td>EITS SECURITY ASSESSMENT</td>
+		    <td align="right">$2,031.00</td>
+		    <td align="right">$1,566.00</td>
+		    <td>PAYROLL</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>7771</td>
+		    <td>COMPUTER SOFTWARE &lt;$5,000 - A</td>
+		    <td align="right">$664.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		  <tr>
+		    <td>26</td>
+		    <td>8371</td>
+		    <td>COMPUTER HARDWARE &lt;$5,000 - A</td>
+		    <td align="right">$2,400.00</td>
+		    <td align="right">$0.00</td>
+		    <td>EQUIPMENT</td>
+		  </tr>
+		    <tr style="background-color:#dddddd">
+		      <td></td>
+		      <td></td>
+		      <td><strong>Total:</strong></td>
+		      <td><strong>$1,481,330</strong></td>
+		      <td><strong>$1,543,564</strong></td>
+		      <td></td>
+		    </tr>
+		</table>
+		</center>
 	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 

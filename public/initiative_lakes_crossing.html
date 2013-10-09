@@ -399,7 +399,7 @@
 			drawPMAgencyChartD();
 			drawCaseloadChartA();
 			drawCaseloadChartB();
-			drawPieChart();
+			//drawPieChart();
 		}
 
     </script>
@@ -615,13 +615,15 @@
 							<div class="large-12 columns">
 								<center><h3>Initiative-level Performance Measures (Summary)</h3></center>
 								<div class="panel radius">
-									<p>Initiative-level Performance Measures are direct measurements of a program's impact on its intended population.</p>
+									<p>Initiative-level Performance Measures directly measure whether a program is accomplishing it’s stated purpose or goal.</p>
 								</div>
 								<h5>Number Waiting for Forensic Beds</h5>
 								<div id="PMInitiativeChartA" style="width: 100%; height: 20em"></div>
+								<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
 								<hr>
 								<h5>Length of Time on Waiting List</h5>
 								<div id="PMInitiativeChartB" style="width: 100%; height: 20em"></div>
+								<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
 								<p><i>Note: Wait time in jails is not to exceed seven to ten days.</i></p>
 							</div>
 						</div>
@@ -631,10 +633,9 @@
 						<div class="row">
 							<div class="large-12 columns">
 								<center><h3>Cost of Measurement</h3></center>
-								<div class="panel callout radius">
-									<p>Note to Jeff: do we want to display any information about the cost of the metrics (either new measures or existing ones)? Perhaps a pie chart displaying the cost of the metrics as a share of the total initiative cost?</p>
+								<div class="panel radius">
+									<h6>NOTE: It is possible and even likely that measurement of initiatives will have costs.  These should be identified in advance so that decision makers understand what is required.</h6>
 								</div>
-								<div id="piechart" style="width: 100%; height: 20em"></div>
 							</div>
 						</div>
 
@@ -658,14 +659,16 @@
 						<div class="large-12 columns">
 							<center><h3>Agency-level Performance Measures (Summary)</h3></center>
 							<div class="panel radius">
-								<p>Agency-level Performance Measures are direct measurements of a program's impact on its intended population.</p>
+								<p>Agency-level Performance Measures are direct measures used by management to access their performance within this program.  They may or may not be directly tied to the initiative under consideration.</p>
 							</div>
 							<h5>Average Length of Stay for Discharged Patients</h5>
 							<div id="PMAgencyChartA" style="width: 100%; height: 20em"></div>
+							<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
 							<p><i>Note: Goal is length of stay less than 115 days.</i></p>
 							<hr>
 							<h5>Percent of Clients Judged Competent at Discharge</h5>
 							<div id="PMAgencyChartB" style="width: 100%; height: 20em"></div>
+							<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
 							<p><i>Note: The declining number of competent defendants can probably be accounted for by two factors. The first is the persisting increase in the acuity of clients both medically and psychiatrically. These clients are observed to be more and more difficult to treat and restore due damaging drug use and the erratic treatment course for many where they are on and off psychiatric medications. A second reason is that the courts are less willing to allow involuntary medication for treatment to competency and these clients are deemed incompetent because that facility is unable to deliver treatment to them. In this case the only option is transfer into the civil system.</i></p>
 							<hr>
 							<h5>Rehospitalization of Conditional Release Clients</h5>
@@ -674,6 +677,7 @@
 							<hr>
 							<h5>Average Cost per Client per Day</h5>
 							<div id="PMAgencyChartD" style="width: 100%; height: 20em"></div>
+							<center><p style="color: red"><i>Projected figures are for illustrative purposes only.</i></p></center>
 						</div>
 					</div>
 
@@ -783,14 +787,14 @@
 
 	</script>
 
-  	<div id="modalBenchmarkDetailsA" class="reveal-modal small">
+  	<div id="modalBenchmarkDetailsA" class="reveal-modal medium">
 	  <h3>Benchmark Details: Poor Mental Health</h3>
 		  <div class="row">
 		  	<div class="large-5 columns">
 		  		<p><Strong>What this Benchmark is Measuring?</strong></p>
 		  	</div>
 		  	<div class="large-7 columns">
-		  		<p>This benchmark measures the number of days in the previous month that an individual could not perform work or household tasks due to metal illness.</p>
+		  		<p>This benchmark measures the number of days in the previous month that an individual could not perform work or household tasks due to mental illness.</p>
 		  	</div>
 		  </div>
 		  <hr>
@@ -815,7 +819,7 @@
 	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 
-  	<div id="modalBenchmarkDetailsB" class="reveal-modal small">
+  	<div id="modalBenchmarkDetailsB" class="reveal-modal medium">
 	  <h3>Benchmark Details: Reduce Repeat Criminal Activity</h3>
 		  <div class="row">
 		  	<div class="large-5 columns">
@@ -831,7 +835,7 @@
 		  		<p><Strong>Why this benchmark is an important measure of Government performance:</strong></p>
 		  	</div>
 		  	<div class="large-7 columns">
-		  		<p>This measures the effectiveness of efforts to improve the probability that offenders successfully re-enter society.Adults: Nevada Offender Tracking Information System - OTIS; Youth Parole: UNITY System</p>
+		  		<p>This measures the effectiveness of efforts to improve the probability that offenders successfully re-enter society.<br><strong>Adults:</strong> Nevada Offender Tracking Information System (OTIS)<br><strong>Youth Parole:</strong> UNITY System</p>
 		  	</div>
 		  </div>
 		  <hr>
@@ -840,17 +844,18 @@
 		  		<p><Strong>Data Source:</strong></p>
 		  	</div>
 		  	<div class="large-7 columns">
-		  		<p>Adults: Nevada Offender Tracking Information System - OTIS</p>
-		  		<p>Youth Parole: UNITY System</p>
+		  		<p><strong>Adults:</strong> Nevada Offender Tracking Information System - OTIS<br>
+		  		<strong>Youth Parole:</strong> UNITY System</p>
 		  	</div>
 		  </div>
 	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 
-  	<div id="modalDecUnitA" class="reveal-modal medium">
+  	<div id="modalDecUnitA" class="reveal-modal large">
 
-	  	<h4>Initiative: Lake's Crossing</h4>
-	  	<h5><strong>Dec Unit:</strong> E-225 (Details)</h5>
+	  	<center><h4>Initiative: Lake's Crossing</h4>
+	  	<h5>Budget Account: 3645</h5>
+	  	<h5>Dec Unit: E-225</h5>
 		<table>
 		  <thead>
 		  	<tr>
@@ -1007,6 +1012,7 @@
 		      <td></td>
 		    </tr>
 		</table>
+		</center>
 	  <a class="close-reveal-modal">&#215;</a>
 	</div>
 
